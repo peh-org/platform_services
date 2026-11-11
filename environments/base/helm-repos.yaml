@@ -16,7 +16,7 @@ metadata:
 spec:
   interval: 30m
   url: https://charts.bitnami.com/bitnami
-  timeout: 1m
+  timeout: 5m
 # ---
 # apiVersion: source.toolkit.fluxcd.io/v1
 # kind: HelmRepository
