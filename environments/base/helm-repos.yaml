@@ -7,3 +7,23 @@ spec:
   interval: 30m
   url: https://istio-release.storage.googleapis.com/charts
   timeout: 1m
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: bitnami
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: https://charts.bitnami.com/bitnami
+  timeout: 1m
+# ---
+# apiVersion: source.toolkit.fluxcd.io/v1
+# kind: HelmRepository
+# metadata:
+#   name: keycloak-operator
+#   namespace: flux-system
+# spec:
+#   interval: 30m
+#   url: https://codecentric.github.io/keycloak-operator-charts
+#   timeout: 1m

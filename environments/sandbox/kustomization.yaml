@@ -12,10 +12,13 @@ kind: Kustomization
 resources:
   - ../base/helm-repos.yaml
   - ../base/istio-helm.yaml
+  - ../base/namespaces.yaml
+  - ../base/postgres-helm.yaml
 
 # Apply the per-environment version pins and overrides
 patches:
   - path: istio.yaml
+  - path: postgres.yaml
 
 # Label all resources deployed into this environment
 labels:

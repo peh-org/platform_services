@@ -1,0 +1,34 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: postgres
+  namespace: flux-system          # flux executes from this namespace
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: postgresql
+      sourceRef:
+        kind: HelmRepository      # This references the Helm repository configured in helm-repos.yaml
+        name: bitnami
+        namespace: flux-system
+  targetNamespace: keycloak
+  install:
+    timeout: 10m0s
+    remediation:
+      retries: 3
+      remediateLastFailure: true
+  values:
+    auth:
+      postgresPassword: "postgres"
+      username: "keycloak"
+      password: "keycloak"
+      database: "keycloak"
+    persistence:
+      enabled: true
+      size: 10Gi
+    service:
+      type: ClusterIP  # Use ClusterIP for internal access (Keycloak will connect via service name)
+    primary:
+      config: |
+        max_connections=200
