@@ -17,13 +17,13 @@ spec:
   interval: 12h
   url: oci://registry-1.docker.io/bitnamicharts/postgresql
   timeout: 5m
-# ---
-# apiVersion: source.toolkit.fluxcd.io/v1
-# kind: HelmRepository
-# metadata:
-#   name: keycloak-operator
-#   namespace: flux-system
-# spec:
-#   interval: 30m
-#   url: https://codecentric.github.io/keycloak-operator-charts
-#   timeout: 1m
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: bitnami-keycloak
+  namespace: flux-system
+spec:
+  interval: 12h
+  url: oci://registry-1.docker.io/bitnamicharts/postgresql
+  timeout: 5m
