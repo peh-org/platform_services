@@ -7,6 +7,7 @@ spec:
   dependsOn:
     - name: postgres-pvc
       namespace: keycloak
+      kind: PersistentVolumeClaim
   interval: 5m
   chartRef:
     kind: OCIRepository
