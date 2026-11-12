@@ -45,4 +45,5 @@ spec:
     recreate: true
     force: true
     cleanupOnFail: true
-  driftDetection: enabled
+  driftDetection: 
+    mode: enabled
