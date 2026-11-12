@@ -9,13 +9,13 @@ spec:
   timeout: 1m
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
+kind: OCIRepository
 metadata:
-  name: bitnami
+  name: bitnami-postgresql
   namespace: flux-system
 spec:
-  interval: 30m
-  url: https://charts.bitnami.com/bitnami
+  interval: 12h
+  url: oci://registry-1.docker.io/bitnamicharts/postgresql
   timeout: 5m
 # ---
 # apiVersion: source.toolkit.fluxcd.io/v1
