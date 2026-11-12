@@ -43,8 +43,8 @@ spec:
     primary:
       config: |
         max_connections=200
-  metrics:
-    enabled: true
+    # metrics:
+    #   enabled: true
   rollback:
     disableWait: true
     disableWaitForJobs: true
