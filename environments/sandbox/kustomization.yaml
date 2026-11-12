@@ -10,9 +10,9 @@ kind: Kustomization
 
 # Include base resources first, then layer in environment-specific patches
 resources:
+  - ../base/namespaces.yaml
   - ../base/helm-repos.yaml
   - ../base/istio-helm.yaml
-  - ../base/namespaces.yaml
   - ../base/postgres-helm.yaml
 
 # Apply the per-environment version pins and overrides
