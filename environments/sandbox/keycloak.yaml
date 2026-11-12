@@ -5,4 +5,4 @@ metadata:
   namespace: flux-system
 spec:
   ref:
-    semver: '~25.2.0'
+    semver: '~25.0.0'
