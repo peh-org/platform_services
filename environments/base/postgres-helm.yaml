@@ -9,13 +9,6 @@ spec:
     kind: OCIRepository
     name: bitnami-postgresql
     namespace: flux-system
-  # chart:
-  #   spec:
-  #     chart: postgresql
-  #     sourceRef:
-  #       kind: HelmRepository      # This references the Helm repository configured in helm-repos.yaml
-  #       name: bitnami
-  #       namespace: flux-system
   targetNamespace: keycloak
   install:
     timeout: 10m0s
@@ -52,3 +45,4 @@ spec:
     recreate: true
     force: true
     cleanupOnFail: true
+  driftDetectionMode: enabled
