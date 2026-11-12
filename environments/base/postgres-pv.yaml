@@ -10,5 +10,5 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain  # Keep data if HelmRelease is deleted
   hostPath:
-    path: /mnt/proxmox  # Path inside the Kind node (mounted from thumb drive)
+    path: /mnt/thumbdrive  # Path inside the Kind node (mounted from thumb drive)
     type: DirectoryOrCreate
