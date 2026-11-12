@@ -17,6 +17,10 @@
 #       remediateLastFailure: true
 #   values:
 #     production: false
+#     # image:
+#     #   registry: docker.io
+#     #   repository: bitnami/keycloak
+#     #   tag: 26.3.2-debian-12-r2
 #     auth:
 #       adminUser: kcadmin
 #       adminPassword: kcpass
