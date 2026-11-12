@@ -1,46 +1,46 @@
-# apiVersion: helm.toolkit.fluxcd.io/v2
-# kind: HelmRelease
-# metadata:
-#   name: postgres
-#   namespace: flux-system          # flux executes from this namespace
-# spec:
-#   interval: 5m
-#   chartRef:
-#     kind: OCIRepository
-#     name: bitnami-postgresql
-#     namespace: flux-system
-#   targetNamespace: keycloak
-#   install:
-#     timeout: 8m0s
-#     remediation:
-#       retries: 3
-#       remediateLastFailure: true
-#   values:
-#     auth:
-#       postgresPassword: "postgrespass"
-#       username: "keycloakuser"
-#       password: "keycloakpass"
-#       database: "keycloakdb"
-#     primary:
-#       service:
-#         type: ClusterIP  # Use ClusterIP for internal access (Keycloak will connect via service name)
-#       config: |
-#         max_connections=200
-#       persistence:
-#         enabled: true
-#         existingClaim: postgres-pvc
-#         # storageClass: thumbdrive
-#         # accessModes:
-#           # - ReadWriteOnce
-#         # size: 10Gi
-#       volumePermissions:
-#         enabled: true
-#   rollback:
-#     disableWait: true
-#     disableWaitForJobs: true
-#     disableHooks: true
-#     recreate: true
-#     force: true
-#     cleanupOnFail: true
-#   driftDetection: 
-#     mode: enabled
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: postgres
+  namespace: flux-system          # flux executes from this namespace
+spec:
+  interval: 5m
+  chartRef:
+    kind: OCIRepository
+    name: bitnami-postgresql
+    namespace: flux-system
+  targetNamespace: keycloak
+  install:
+    timeout: 8m0s
+    remediation:
+      retries: 3
+      remediateLastFailure: true
+  values:
+    auth:
+      postgresPassword: "postgrespass"
+      username: "keycloakuser"
+      password: "keycloakpass"
+      database: "keycloakdb"
+    primary:
+      service:
+        type: ClusterIP  # Use ClusterIP for internal access (Keycloak will connect via service name)
+      config: |
+        max_connections=200
+      persistence:
+        enabled: true
+        existingClaim: postgres-pvc
+        # storageClass: thumbdrive
+        # accessModes:
+          # - ReadWriteOnce
+        # size: 10Gi
+      volumePermissions:
+        enabled: true
+  rollback:
+    disableWait: true
+    disableWaitForJobs: true
+    disableHooks: true
+    recreate: true
+    force: true
+    cleanupOnFail: true
+  driftDetection: 
+    mode: enabled
