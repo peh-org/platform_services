@@ -12,10 +12,6 @@ spec:
     kind: OCIRepository
     name: bitnami-keycloak
     namespace: flux-system
-  image:
-    registry: docker.io
-    repository: bitnami/keycloak
-    tag: 26.3.2-debian-12-r2
   targetNamespace: keycloak   # This is the namespace we want istio to run in
   install:
     timeout: 10m0s
@@ -24,6 +20,10 @@ spec:
       remediateLastFailure: true
   values:
     production: false
+    image:
+      registry: docker.io
+      repository: bitnami/keycloak
+      tag: 26.3.2-debian-12-r2
     auth:
       adminUser: kcadmin
       adminPassword: kcpass
