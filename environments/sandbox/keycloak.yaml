@@ -1,8 +1,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: OCIRepository
 metadata:
-  name: bitnami-keycloak
+  name: codecentric
   namespace: flux-system
 spec:
   ref:
-    semver: '~25.2.0'
+    semver: '~18.10.0'

@@ -19,11 +19,11 @@ spec:
   timeout: 5m
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
-kind: OCIRepository
+kind: HelmRepository
 metadata:
-  name: bitnami-keycloak
+  name: codecentric
   namespace: flux-system
 spec:
   interval: 12h
-  url: oci://registry-1.docker.io/bitnamicharts/keycloak
+  url: https://codecentric.github.io/helm-charts
   timeout: 5m
