@@ -12,12 +12,12 @@ metadata:
   # Istio Injection not necessary unless AuthorizationPolicy mTLS between ESO and in-mesh service
   labels:
     istio-injection: disabled
-# ---
-# apiVersion: v1
-# kind: Namespace
-# metadata:
-#   name: openbao
-#   # Istio Injection not necessary unless AuthorizationPolicy mTLS between ESO and in-mesh service
-#   labels:
-#     istio-injection: disabled
-# ---
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openbao
+  # Istio Injection not necessary unless AuthorizationPolicy mTLS between ESO and in-mesh service
+  labels:
+    istio-injection: disabled
+---
