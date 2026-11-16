@@ -6,6 +6,13 @@ resources:
   - ../../base/k8s_resources/thumbdrive-storageclass.yaml
   - ../../base/helm/helm-repos.yaml    # install helm repos all at once at the beginning
 
+# Apply the per-environment version pins and overrides
+patches:
+  - path: istio.yaml
+  - path: postgres.yaml
+  - path: keycloak.yaml
+  - path: eso.yaml
+  - path: openbao.yaml
 
 # Label all resources deployed into this environment
 labels:
