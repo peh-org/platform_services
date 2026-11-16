@@ -21,5 +21,3 @@ spec:
         namespace: flux-system
   values:
     installCRDs: true
-    bitwarden-sdk-server:
-      enabled: true

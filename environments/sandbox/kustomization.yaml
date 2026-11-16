@@ -17,12 +17,15 @@ resources:
   - ../base/helm/postgres-helm.yaml
   - ../base/helm/keycloak-helm.yaml
   - ../base/helm/eso-helm.yaml
+  - ../base/helm/openbao-helm.yaml
 
 # Apply the per-environment version pins and overrides
 patches:
   - path: istio.yaml
   - path: postgres.yaml
   - path: keycloak.yaml
+  - path: eso.yaml
+  - path: openbao.yaml
 
 # Label all resources deployed into this environment
 labels:
