@@ -47,7 +47,7 @@ spec:
         value: "changeme-admin"
       - name: JAVA_OPTS_APPEND
         value: >-
-          -Djgroups.dns.query=keycloak-keycloakx-headless.keycloak.svc.cluster.local
+          -Djgroups.dns.query=keycloak-keycloak-keycloakx-headless.keycloak.svc.cluster.local
 
     service:
       type: ClusterIP

@@ -13,8 +13,8 @@ spec:
   install:
     timeout: 8m0s
     remediation:
-      retries: 0
-      # remediateLastFailure: true
+      retries: 3
+      remediateLastFailure: true
   values:
     auth:
       postgresPassword: "postgrespass"
