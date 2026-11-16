@@ -16,6 +16,7 @@ resources:
   - ../base/helm/istio-helm.yaml
   - ../base/helm/postgres-helm.yaml
   - ../base/helm/keycloak-helm.yaml
+  - ../base/helm/eso.yaml
 
 # Apply the per-environment version pins and overrides
 patches:
