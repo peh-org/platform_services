@@ -5,3 +5,10 @@ metadata:
   labels:
     istio-injection: enabled
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: external-secrets
+  labels:
+    istio-injection: enabled
+---

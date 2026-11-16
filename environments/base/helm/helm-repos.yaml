@@ -27,3 +27,12 @@ spec:
   interval: 12h
   url: https://codecentric.github.io/helm-charts
   timeout: 5m
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: external-secrets
+  namespace: flux-system
+spec:
+  interval: 12h
+  url: https://charts.external-secrets.io
