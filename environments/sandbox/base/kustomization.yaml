@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - ../../base/k8s_resources/namespaces.yaml
   - ../../base/k8s_resources/thumbdrive-storageclass.yaml
-  - ../../base/k8s_resources/clustersecretstore.yaml
   - ../../base/helm/helm-repos.yaml    # install helm repos all at once at the beginning
 
 
