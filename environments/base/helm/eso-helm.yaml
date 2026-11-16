@@ -1,23 +1,23 @@
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
-metadata:
-  name: external-secrets
-  namespace: flux-system
-spec:
-  interval: 10m
-  targetNamespace: external-secrets
-  releaseName: external-secrets
-  install:
-    timeout: 10m0s
-    remediation:
-      retries: 3
-      remediateLastFailure: true
-  chart:
-    spec:
-      chart: external-secrets
-      sourceRef:
-        kind: HelmRepository
-        name: external-secrets
-        namespace: flux-system
-  values:
-    installCRDs: true
+# apiVersion: helm.toolkit.fluxcd.io/v2
+# kind: HelmRelease
+# metadata:
+#   name: external-secrets
+#   namespace: flux-system
+# spec:
+#   interval: 10m
+#   targetNamespace: external-secrets
+#   releaseName: external-secrets
+#   install:
+#     timeout: 10m0s
+#     remediation:
+#       retries: 3
+#       remediateLastFailure: true
+#   chart:
+#     spec:
+#       chart: external-secrets
+#       sourceRef:
+#         kind: HelmRepository
+#         name: external-secrets
+#         namespace: flux-system
+#   values:
+#     installCRDs: true
