@@ -1,0 +1,59 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: keycloak
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: postgres
+      namespace: flux-system
+  interval: 5m
+  chart:
+    spec:
+      chart: keycloakx # KEYCLOAK X!
+      sourceRef:
+        kind: HelmRepository
+        name: codecentric-keycloak
+        namespace: flux-system
+  targetNamespace: keycloak
+  install:
+    timeout: 10m0s
+    remediation:
+      retries: 3
+      remediateLastFailure: true
+  values:
+    replicas: 1
+
+    command:
+      - "/opt/keycloak/bin/kc.sh"
+      - "start"
+      - "--http-enabled=true"
+      - "--http-port=8080"
+      - "--hostname-strict=false"
+      - "--health-enabled=true"
+
+    database:
+      vendor: postgres
+      hostname: keycloak-postgres-postgresql.keycloak.svc
+      port: 5432
+      database: keycloakdb
+      username: keycloakuser
+      existingSecret: postgres-auth
+      existingSecretKey: password
+
+    extraEnv: |
+      - name: KC_BOOTSTRAP_ADMIN_USERNAME
+        value: admin
+      - name: KC_BOOTSTRAP_ADMIN_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-admin
+            key: admin-password
+      - name: JAVA_OPTS_APPEND
+        value: >-
+          -Djgroups.dns.query=keycloak-keycloak-keycloakx-headless.keycloak.svc.cluster.local
+
+    service:
+      type: ClusterIP
+  driftDetection: 
+    mode: enabled

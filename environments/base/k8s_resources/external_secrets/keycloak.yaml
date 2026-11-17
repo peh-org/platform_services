@@ -1,7 +1,7 @@
 apiVersion: external-secrets.io/v1
 kind: ExternalSecret
 metadata:
-  name: keycloak-admin-password
+  name: keycloak-admin
   namespace: keycloak
 spec:
   refreshInterval: 1h
@@ -9,10 +9,10 @@ spec:
     kind: ClusterSecretStore
     name: openbao-secret-store
   target:
-    name: keycloak-admin-password
+    name: keycloak-admin
     creationPolicy: Owner
   data:
-    - secretKey: keycloak-admin-password
+    - secretKey: admin-password
       remoteRef:
         key: keycloak/admin
         property: password
