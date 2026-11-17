@@ -1,0 +1,19 @@
+# Tells the Flux GitOps controller which resources belong to this environment
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Include base resources first, then layer in environment-specific patches
+resources:
+  - ../../base/helm/repos/eso-repo.yaml
+  - ../../base/helm/releases/eso-helm.yaml
+
+# Apply the per-environment version pins and overrides
+patches:
+  - path: eso.yaml
+
+# Label all resources deployed into this environment
+labels:
+  - pairs:
+      env: sandbox
+    includeSelectors: false
+    includeTemplates: true
