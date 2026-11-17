@@ -1,35 +1,29 @@
-# Tells the Flux GitOps controller which resources belong to this environment
-# and which patches to apply on top of the base configuration.
-#
-# When the Flux Kustomization CRD in the platform-gitops repository points to
-# ./environments/platform-sandbox, this file is the entry point.
-# =============================================================================
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
 
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
+# # Include base resources first, then layer in environment-specific patches
+# resources:
+#   - ../base/k8s_resources/namespaces.yaml
+#   - ../base/k8s_resources/thumbdrive-storageclass.yaml
+#   - ../base/k8s_resources/clustersecretstore.yaml
+#   - ../base/helm/helm-repos.yaml
+#   - ../base/helm/istio-helm.yaml
+#   - ../base/helm/postgres-helm.yaml
+#   - ../base/helm/keycloak-helm.yaml
+#   - ../base/helm/eso-helm.yaml
+#   - ../base/helm/openbao-helm.yaml
 
-# Include base resources first, then layer in environment-specific patches
-resources:
-  - ../base/k8s_resources/namespaces.yaml
-  - ../base/k8s_resources/postgres-pv.yaml
-  - ../base/helm/helm-repos.yaml
-  - ../base/helm/istio-helm.yaml
-  - ../base/helm/postgres-helm.yaml
-  - ../base/helm/keycloak-helm.yaml
-  - ../base/helm/eso-helm.yaml
-  - ../base/helm/openbao-helm.yaml
+# # Apply the per-environment version pins and overrides
+# patches:
+#   - path: istio.yaml
+#   - path: postgres.yaml
+#   - path: keycloak.yaml
+#   - path: eso.yaml
+#   - path: openbao.yaml
 
-# Apply the per-environment version pins and overrides
-patches:
-  - path: istio.yaml
-  - path: postgres.yaml
-  - path: keycloak.yaml
-  - path: eso.yaml
-  - path: openbao.yaml
-
-# Label all resources deployed into this environment
-labels:
-  - pairs:
-      env: sandbox
-    includeSelectors: false
-    includeTemplates: true
+# # Label all resources deployed into this environment
+# labels:
+#   - pairs:
+#       env: sandbox
+#     includeSelectors: false
+#     includeTemplates: true
