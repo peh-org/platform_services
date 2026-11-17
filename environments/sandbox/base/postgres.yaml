@@ -1,8 +1,0 @@
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: OCIRepository
-metadata:
-  name: bitnami-postgresql
-  namespace: flux-system
-spec:
-  ref:
-    semver: '~18.12.18'
