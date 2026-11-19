@@ -7,5 +7,5 @@ reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
 parameters:
   # newer provisioner versions only, check the version kind ships:
-  nodePath: /mnt/thumbdrive
+  nodePath: /mnt/thumbdrive/dynamic
   pathPattern: "{{ .PVC.Namespace }}/{{ .PVC.Name }}"
